@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -40,45 +42,63 @@ h1, h2, h3, h4, h5, h6 {
     isolation: isolate;
 }
 
+/* ABOVE: CSS Reset */
+
 .container {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-areas:
+    'nav header header'
+    'nav content aside'
+    'nav content aside';
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
 }
 
 header {
-    display: grid;
-    align-items: center;
-    grid-template-columns: auto 1fr;
-    padding: 0;
-    margin: 0;
+    grid-area: nav;
 }
 
 header span {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-header img {
-    width: 50px;
-    height: auto;
 }
 
 .sidebar {
-    display: grid;
-    grid-row-start: 2;
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #1992D4;
+    padding: 15px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav.dashboard,
+.nav.communities {
+    margin-bottom: 2rem
+}
+
+.sidebar span {
+    color: white;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif
 }
 
 .nav {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px;
 }
 
-.nav img {
+nav img {
     width: 25px;
     height: auto;
+    filter: invert(100%);
+    margin-right: 5px;
+}
+
+.dashboard-svg {
+    width: 50px;
+    margin-left: -12.5px;
 }
 
 .sidebar ul {
